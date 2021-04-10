@@ -294,7 +294,5 @@ public class FXMLDocumentController implements Initializable {
         recorrido.setText(list.get(0).getRecorrido());
         tipoEjercicio.setText(list.get(0).getTipoDeEjercicio());
         peso.setText(list.get(0).getPeso().toString());        
-        
-        System.out.println(list.get(0).getFecha());
     }
 }
