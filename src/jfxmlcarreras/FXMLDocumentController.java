@@ -6,6 +6,7 @@
 package jfxmlcarreras;
 
 import java.net.URL;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -13,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,6 +39,8 @@ import piramboia.Carreras;
  * @author arpor
  */
 public class FXMLDocumentController implements Initializable {
+    
+    Locale esLocale = new Locale("es");
     
     // Create EntityManagerFactory for a persistence unit called em1.
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("JFXMLCarrerasPU");
@@ -258,7 +262,37 @@ public class FXMLDocumentController implements Initializable {
                 }
             };
         });
+        
+        kmsColumn.setCellFactory(column -> {
+            return new TableCell<Carreras, Double>() {
+                @Override
+                protected void updateItem(Double item, boolean empty) {
+                    super.updateItem(item, empty);
 
+                    if (item == null || empty) {
+                        setText(null);
+                    } else {
+                        setText(NumberFormat.getInstance(esLocale).format(item));
+                    }
+                }
+            };
+        });        
+        
+        pesoColumn.setCellFactory(column -> {
+            return new TableCell<Carreras, Double>() {
+                @Override
+                protected void updateItem(Double item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (item == null || empty) {
+                        setText(null);
+                    } else {
+                        setText(NumberFormat.getInstance(esLocale).format(item));
+                    }
+                }
+            };
+        });        
+        
         TableView.setItems(list);
     }
     
@@ -288,11 +322,16 @@ public class FXMLDocumentController implements Initializable {
         
         numSec.setText(list.get(0).getNumSec().toString());        
         fecha.setValue(new java.sql.Date(list.get(0).getFecha().getTime()).toLocalDate());
-        horaInicio.setText(list.get(0).getHoraInicio().toString());
-        horaFin.setText(list.get(0).getHoraFin().toString());
-        kms.setText(list.get(0).getKms().toString());
+        
+        DateTimeFormatter fm = DateTimeFormatter.ofPattern("hh:mm:ss");        
+        LocalTime lt = LocalTime.parse(new SimpleDateFormat("hh:mm:ss").format(list.get(0).getHoraInicio()));
+        horaInicio.setText(fm.format(lt));
+        lt = LocalTime.parse(new SimpleDateFormat("hh:mm:ss").format(list.get(0).getHoraFin()));
+        horaFin.setText(fm.format(lt));
+                
+        kms.setText(NumberFormat.getInstance(esLocale).format(list.get(0).getKms()));
         recorrido.setText(list.get(0).getRecorrido());
         tipoEjercicio.setText(list.get(0).getTipoDeEjercicio());
-        peso.setText(list.get(0).getPeso().toString());        
+        peso.setText(NumberFormat.getInstance(esLocale).format(list.get(0).getPeso()));
     }
 }

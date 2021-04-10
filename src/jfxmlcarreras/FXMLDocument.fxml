@@ -59,7 +59,7 @@
             <TextField fx:id="horaInicio" layoutX="10.0" layoutY="45.0" maxHeight="25.0" maxWidth="100.0" prefHeight="25.0" prefWidth="100.0" />
             <TextField fx:id="horaFin" layoutX="10.0" layoutY="45.0" maxHeight="25.0" maxWidth="100.0" prefHeight="25.0" prefWidth="100.0" />
             <TextField fx:id="kms" maxHeight="25.0" maxWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
-            <TextArea fx:id="recorrido" prefHeight="269.0" prefWidth="129.0" />
+            <TextArea fx:id="recorrido" prefHeight="269.0" prefWidth="129.0" wrapText="true" />
             <TextField fx:id="tipoEjercicio" layoutX="10.0" layoutY="150.0" />
             <TextField fx:id="peso" layoutX="10.0" layoutY="185.0" maxHeight="25.0" maxWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
            
