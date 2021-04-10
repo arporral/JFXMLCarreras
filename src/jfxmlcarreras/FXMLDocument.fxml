@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfxmlcarreras.FXMLDocumentController">
+   <children>
+      <VBox layoutX="26.0" layoutY="22.0" prefHeight="501.0" prefWidth="82.0" spacing="15.0">
+         <children>
+            <Label text="Fecha">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Hora inicio">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Hora fin">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Kms">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Recorrido">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="242.0" />
+               </padding>
+            </Label>
+            <Label layoutX="10.0" layoutY="150.0" text="Tipo ejercicio">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="185.0" text="Peso">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="117.0" layoutY="20.0" prefHeight="501.0" prefWidth="215.0" spacing="10.0">
+         <children>
+            <DatePicker fx:id="fecha" />
+            <TextField fx:id="horaInicio" layoutX="10.0" layoutY="45.0" maxHeight="25.0" maxWidth="100.0" prefHeight="25.0" prefWidth="100.0" />
+            <TextField fx:id="horaFin" layoutX="10.0" layoutY="45.0" maxHeight="25.0" maxWidth="100.0" prefHeight="25.0" prefWidth="100.0" />
+            <TextField fx:id="kms" maxHeight="25.0" maxWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+            <TextArea fx:id="recorrido" prefHeight="269.0" prefWidth="129.0" />
+            <TextField fx:id="tipoEjercicio" layoutX="10.0" layoutY="150.0" />
+            <TextField fx:id="peso" layoutX="10.0" layoutY="185.0" maxHeight="25.0" maxWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+           
+         </children>
+      </VBox>
+      <HBox layoutX="66.0" layoutY="540.0" spacing="10.0">
+         <children>
+            <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertButton" prefHeight="30.0" prefWidth="60.0" text="Insert" />
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton" prefHeight="30.0" prefWidth="60.0" text="Update" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="60.0" text="Delete" />
+         </children>
+      </HBox>
+      <TableView fx:id="TableView" layoutX="348.0" layoutY="20.0" onMouseClicked="#selectRow" prefHeight="1022.0" prefWidth="1552.0">
+        <columns>
+          <TableColumn fx:id="numSecColumn" prefWidth="40.0" text="Num" />
+            <TableColumn fx:id="fechaColumn" prefWidth="74.0" text="Fecha" />
+          <TableColumn fx:id="horaInicioColumn" prefWidth="87.0" text="Hora inicio" />
+            <TableColumn fx:id="horaFinColumn" prefWidth="77.0" text="Hora fin" />
+            <TableColumn fx:id="kmsColumn" prefWidth="62.0" text="Kms" />
+            <TableColumn fx:id="recorridoColumn" prefWidth="1047.0" text="Recorrido" />
+            <TableColumn fx:id="tipoEjercicioColumn" minWidth="0.0" prefWidth="102.0" text="Tipo ejercicio" />
+            <TableColumn fx:id="pesoColumn" prefWidth="54.0" text="Peso" />
+        </columns>
+      </TableView>
+      <TextField fx:id="numSec" editable="false" layoutX="26.0" layoutY="1011.0" prefHeight="25.0" prefWidth="145.0" text="numSec" visible="false" />
+   </children>
+</AnchorPane>
